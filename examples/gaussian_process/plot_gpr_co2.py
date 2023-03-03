@@ -42,7 +42,7 @@ co2.frame.head()
 # %%
 # First, we process the original dataframe to create a date index and select
 # only the CO2 column.
-import pandas as pd
+import modin.pandas as pd
 
 co2_data = co2.frame
 co2_data["date"] = pd.to_datetime(co2_data[["year", "month", "day"]])

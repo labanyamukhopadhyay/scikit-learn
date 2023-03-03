@@ -121,7 +121,7 @@ _ = ax2.set_title("KNN with scaling")
 #
 # We can inspect the first principal components using all the original features:
 
-import pandas as pd
+import modin.pandas as pd
 from sklearn.decomposition import PCA
 
 pca = PCA(n_components=2).fit(X_train)

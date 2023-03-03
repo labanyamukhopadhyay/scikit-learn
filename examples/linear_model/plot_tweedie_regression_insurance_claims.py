@@ -48,7 +48,7 @@ from functools import partial
 
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
+import modin.pandas as pd
 
 from sklearn.datasets import fetch_openml
 from sklearn.metrics import mean_tweedie_deviance

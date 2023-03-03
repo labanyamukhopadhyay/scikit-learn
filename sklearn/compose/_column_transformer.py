@@ -727,6 +727,8 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
         self._check_feature_names(X, reset=True)
 
         X = _check_X(X)
+        print("fit_transform")
+        print(X)
         # set n_features_in_ attribute
         self._check_n_features(X, reset=True)
         self._validate_transformers()
@@ -756,7 +758,6 @@ class ColumnTransformer(TransformerMixin, _BaseComposition):
         self._update_fitted_transformers(transformers)
         self._validate_output(Xs)
         self._record_output_indices(Xs)
-
         return self._hstack(list(Xs))
 
     def transform(self, X):

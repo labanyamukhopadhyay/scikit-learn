@@ -75,7 +75,7 @@ model_l1 = LinearSVC(penalty="l1", loss="squared_hinge", dual=False, tol=1e-3)
 # %%
 # We will compute the mean test score for different values of `C`.
 import numpy as np
-import pandas as pd
+import modin.pandas as pd
 from sklearn.model_selection import validation_curve, ShuffleSplit
 
 Cs = np.logspace(-2.3, -1.3, 10)

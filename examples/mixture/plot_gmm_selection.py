@@ -92,7 +92,7 @@ grid_search.fit(X)
 # the cross-validation done by the grid search. We re-inverse the sign of the
 # BIC score to show the effect of minimizing it.
 
-import pandas as pd
+import modin.pandas as pd
 
 df = pd.DataFrame(grid_search.cv_results_)[
     ["param_n_components", "param_covariance_type", "mean_test_score"]

@@ -95,7 +95,7 @@ plt.show()
 #
 # Note that if the training data has feature names, it's possible to specifiy the
 # monotonic constraints by passing a dictionary:
-import pandas as pd
+import modin.pandas as pd
 
 X_df = pd.DataFrame(X, columns=["f_0", "f_1"])
 

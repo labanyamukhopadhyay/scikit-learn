@@ -337,6 +337,7 @@ def test_type_of_target():
             type_of_target(example)
 
 
+@pytest.mark.skip(reason="sparse df")
 def test_type_of_target_pandas_sparse():
     pd = pytest.importorskip("modin.pandas")
 

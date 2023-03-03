@@ -10,7 +10,7 @@ multiple candidates.
 
 """
 
-import pandas as pd
+import modin.pandas as pd
 from sklearn import datasets
 import matplotlib.pyplot as plt
 from scipy.stats import randint

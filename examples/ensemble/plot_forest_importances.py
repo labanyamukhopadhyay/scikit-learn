@@ -68,7 +68,7 @@ print(f"Elapsed time to compute the importances: {elapsed_time:.3f} seconds")
 
 # %%
 # Let's plot the impurity-based importance.
-import pandas as pd
+import modin.pandas as pd
 
 forest_importances = pd.Series(importances, index=feature_names)
 

@@ -105,6 +105,8 @@ def _assert_all_finite(
 
     X = xp.asarray(X)
 
+    print(X)
+
     # for object dtype data, we only check for NaNs (GH-13254)
     if X.dtype == np.dtype("object") and not allow_nan:
         if _object_dtype_isnan(X).any():
@@ -785,14 +787,12 @@ def check_array(
         else:
             # Set to None to let array.astype work out the best dtype
             dtype_orig = None
-
     if dtype_numeric:
         if dtype_orig is not None and dtype_orig.kind == "O":
             # if input is object, convert to float.
             dtype = xp.float64
         else:
             dtype = None
-
     if isinstance(dtype, (list, tuple)):
         if dtype_orig is not None and dtype_orig in dtype:
             # no dtype conversion required
@@ -801,7 +801,6 @@ def check_array(
             # dtype conversion required. Let's select the first element of the
             # list of accepted types.
             dtype = dtype[0]
-
     if pandas_requires_conversion:
         # pandas dataframe requires conversion earlier to handle extension dtypes with
         # nans
@@ -820,7 +819,6 @@ def check_array(
 
     estimator_name = _check_estimator_name(estimator)
     context = " by %s" % estimator_name if estimator is not None else ""
-
     # When all dataframe columns are sparse, convert to a sparse array
     if hasattr(array, "sparse") and array.ndim > 1:
         with suppress(ImportError):
@@ -839,7 +837,6 @@ def check_array(
                             "Sparse extension arrays should all have the same "
                             "numeric type."
                         )
-
     if sp.issparse(array):
         _ensure_no_complex_data(array)
         array = _ensure_sparse_format(

@@ -27,7 +27,7 @@ X_train.head()
 
 from sklearn.preprocessing import StandardScaler
 
-scaler = StandardScaler().set_output(transform="pandas")
+scaler = StandardScaler().set_output(transform="modin.pandas")
 
 scaler.fit(X_train)
 X_test_scaled = scaler.transform(X_test)
@@ -105,7 +105,7 @@ clf.score(X_test, y_test)
 # %%
 # With the global configuration, all transformers output DataFrames. This allows us to
 # easily plot the logistic regression coefficients with the corresponding feature names.
-import pandas as pd
+import modin.pandas as pd
 
 log_reg = clf[-1]
 coef = pd.Series(log_reg.coef_.ravel(), index=log_reg.feature_names_in_)

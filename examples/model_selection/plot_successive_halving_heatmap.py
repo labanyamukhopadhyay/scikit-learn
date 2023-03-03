@@ -12,7 +12,7 @@ from time import time
 
 import matplotlib.pyplot as plt
 import numpy as np
-import pandas as pd
+import modin.pandas as pd
 
 from sklearn.svm import SVC
 from sklearn import datasets

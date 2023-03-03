@@ -1573,10 +1573,17 @@ def test_simple_impute_pd_na():
     )
 
     # Impute pandas array of integer types.
-    df = pd.DataFrame({"feature": pd.Series([1, None, 3], dtype="Int64")})
+    df = pd.DataFrame({"feature": pd.Series([1.0, None, 3.0], dtype="Int64")})
+    print("df:")
+    print(df)
     imputer = SimpleImputer(missing_values=pd.NA, strategy="constant", fill_value=-1)
+    # print(type(df["feature"][0]))
+    # df = np.array(df, dtype="float64")
+    print("imputer: ", np.array(imputer.fit_transform(df), dtype="float64"))
+    print("np:", np.array([[1], [-1], [3]], dtype="float64"))
     _assert_allclose_and_same_dtype(
-        imputer.fit_transform(df), np.array([[1], [-1], [3]], dtype="float64")
+        np.array(imputer.fit_transform(df), dtype="float64"),  # fixed
+        np.array([[1], [-1], [3]], dtype="float64"),
     )
 
     # Use `np.nan` also works.

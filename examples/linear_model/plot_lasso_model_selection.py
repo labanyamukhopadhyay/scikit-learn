@@ -32,7 +32,7 @@ X.head()
 # In addition, we add some random features to the original data to
 # better illustrate the feature selection performed by the Lasso model.
 import numpy as np
-import pandas as pd
+import modin.pandas as pd
 
 rng = np.random.RandomState(42)
 n_random_features = 14

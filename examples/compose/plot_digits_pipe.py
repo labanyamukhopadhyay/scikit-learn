@@ -17,7 +17,7 @@ We use a GridSearchCV to set the dimensionality of the PCA
 
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
+import modin.pandas as pd
 
 from sklearn import datasets
 from sklearn.decomposition import PCA

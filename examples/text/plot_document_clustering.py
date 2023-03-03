@@ -394,7 +394,9 @@ fit_and_evaluate(
 # Clustering evaluation summary
 # ==============================
 
-import pandas as pd
+import modin.pandas as pd
+
+# import pandas as pd
 import matplotlib.pyplot as plt
 
 fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(16, 6), sharey=True)
@@ -402,6 +404,8 @@ fig, (ax0, ax1) = plt.subplots(ncols=2, figsize=(16, 6), sharey=True)
 df = pd.DataFrame(evaluations[::-1]).set_index("estimator")
 df_std = pd.DataFrame(evaluations_std[::-1]).set_index("estimator")
 
+print(df_std["train_time"].shape)
+print(df["train_time"].shape)
 df.drop(
     ["train_time"],
     axis="columns",

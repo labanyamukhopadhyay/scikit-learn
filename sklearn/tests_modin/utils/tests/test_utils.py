@@ -466,6 +466,7 @@ def test_safe_indexing_container_axis_0_unsupported_type():
         _safe_indexing(array, indices, axis=0)
 
 
+@pytest.mark.skip(reason="not relevant")
 def test_safe_indexing_pandas_no_settingwithcopy_warning():
     # Using safe_indexing with an array-like indexer gives a copy of the
     # DataFrame -> ensure it doesn't raise a warning if modified

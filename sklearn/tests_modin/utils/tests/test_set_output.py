@@ -129,7 +129,7 @@ def test_set_output_method():
     X_trans_np = est2.transform(X)
     assert isinstance(X_trans_np, np.ndarray)
 
-    est.set_output(transform="pandas")
+    est.set_output(transform="modin.pandas")
 
     X_trans_pd = est.transform(X)
     assert isinstance(X_trans_pd, pd.DataFrame)

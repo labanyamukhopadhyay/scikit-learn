@@ -131,7 +131,7 @@ plt.show()
 #
 # Measure the models with :func:`mean_squared_error` and
 # :func:`mean_pinball_loss` metrics on the training dataset.
-import pandas as pd
+import modin.pandas as pd
 
 
 def highlight_min(x):

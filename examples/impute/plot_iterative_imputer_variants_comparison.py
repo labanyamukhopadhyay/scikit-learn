@@ -46,7 +46,7 @@ complex and costly missing values imputation strategies.
 
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
+import modin.pandas as pd
 
 # To use this experimental feature, we need to explicitly ask for it:
 from sklearn.experimental import enable_iterative_imputer  # noqa

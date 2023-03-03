@@ -75,7 +75,7 @@ print(f"LR+: {pos_LR:.3f}")
 # We assess the variability of the measurements for the class likelihood ratios
 # in some particular cases.
 
-import pandas as pd
+import modin.pandas as pd
 
 
 def scoring(estimator, X, y):

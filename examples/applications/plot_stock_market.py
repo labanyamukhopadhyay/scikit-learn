@@ -25,7 +25,7 @@ that are linked tend to fluctuate in relation to each other during a day.
 
 import sys
 import numpy as np
-import pandas as pd
+import modin.pandas as pd
 
 symbol_dict = {
     "TOT": "Total",

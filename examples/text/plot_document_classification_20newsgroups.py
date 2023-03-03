@@ -183,7 +183,7 @@ _ = ax.set_title(
 # We can gain a deeper understanding of how this classifier makes its decisions
 # by looking at the words with the highest average feature effects:
 
-import pandas as pd
+import modin.pandas as pd
 import numpy as np
 
 

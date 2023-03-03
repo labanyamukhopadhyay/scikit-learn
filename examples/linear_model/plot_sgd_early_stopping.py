@@ -44,7 +44,7 @@ is held out with the validation stopping criterion.
 import time
 import sys
 
-import pandas as pd
+import modin.pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 

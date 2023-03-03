@@ -369,7 +369,7 @@ def cos_transformer(period):
 #
 # Let us visualize the effect of this feature expansion on some synthetic hour
 # data with a bit of extrapolation beyond hour=23:
-import pandas as pd
+import modin.pandas as pd
 
 hour_df = pd.DataFrame(
     np.arange(26).reshape(-1, 1),

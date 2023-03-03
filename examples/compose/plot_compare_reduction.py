@@ -69,7 +69,7 @@ grid = GridSearchCV(pipe, n_jobs=1, param_grid=param_grid)
 grid.fit(X, y)
 
 # %%
-import pandas as pd
+import modin.pandas as pd
 
 mean_scores = np.array(grid.cv_results_["mean_test_score"])
 # scores are in the order of param_grid iteration, which is alphabetical

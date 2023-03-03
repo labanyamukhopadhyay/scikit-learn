@@ -89,12 +89,13 @@ def test_dispatch_config_parallel(n_jobs):
         n_jobs=n_jobs,
         error_score="raise",  # this search should not fail
     )
-
+    X = iris.data
+    y = iris.target
     # make sure that `fit` would fail in case we don't request dataframe
     with pytest.raises(AssertionError, match="X should be a DataFrame"):
         search_cv.fit(iris.data, iris.target)
 
-    with config_context(transform_output="pandas"):
+    with config_context(transform_output="modin.pandas"):
         # we expect each intermediate steps to output a DataFrame
         search_cv.fit(iris.data, iris.target)
 

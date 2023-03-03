@@ -34,7 +34,7 @@ print(__doc__)
 import numpy as np
 from sklearn.datasets import fetch_kddcup99, fetch_covtype, fetch_openml
 from sklearn.preprocessing import LabelBinarizer
-import pandas as pd
+import modin.pandas as pd
 
 rng = np.random.RandomState(42)
 

@@ -1180,8 +1180,8 @@ def check_pandas_support(caller_name):
         The pandas package.
     """
     try:
-        import pandas  # noqa
+        import modin.pandas  # noqa
 
-        return pandas
+        return modin.pandas
     except ImportError as e:
         raise ImportError("{} requires pandas.".format(caller_name)) from e

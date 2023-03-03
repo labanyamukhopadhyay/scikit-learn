@@ -209,7 +209,7 @@ print(f"Internal CV score: {search_cv.best_score_:.3f}")
 
 # %%
 # We can also introspect the top grid search results as a pandas dataframe:
-import pandas as pd
+import modin.pandas as pd
 
 cv_results = pd.DataFrame(search_cv.cv_results_)
 cv_results = cv_results.sort_values("mean_test_score", ascending=False)

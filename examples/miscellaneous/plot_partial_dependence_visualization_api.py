@@ -13,7 +13,7 @@ customize the plot with the visualization API.
 
 """  # noqa: E501
 
-import pandas as pd
+import modin.pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_diabetes
 from sklearn.neural_network import MLPRegressor

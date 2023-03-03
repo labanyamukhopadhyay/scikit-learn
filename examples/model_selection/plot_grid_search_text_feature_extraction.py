@@ -147,7 +147,7 @@ print(f"Accuracy on test set: {test_accuracy:.3f}")
 # this, we define a function that will rename the tuned hyperparameters and
 # improve the readability.
 
-import pandas as pd
+import modin.pandas as pd
 
 
 def shorten_param(param_name):

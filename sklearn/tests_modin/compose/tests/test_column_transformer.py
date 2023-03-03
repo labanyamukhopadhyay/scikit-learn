@@ -3,6 +3,7 @@ Test the ColumnTransformer.
 """
 import re
 import pickle
+from tkinter import X
 
 import numpy as np
 from scipy import sparse
@@ -2040,8 +2041,9 @@ def test_column_transform_set_output_after_fitting(remainder):
     X_trans = ct.fit_transform(df)
     assert isinstance(X_trans, np.ndarray)
     assert X_trans.dtype == "float64"
+    print(X_trans)
 
-    ct.set_output(transform="pandas")
+    ct.set_output(transform="modin.pandas")
     X_trans_df = ct.transform(df)
     expected_dtypes = {
         "pet_cat": "int16",
@@ -2050,6 +2052,7 @@ def test_column_transform_set_output_after_fitting(remainder):
         "height": "int64",
         "age": "float64",
     }
+    print(X_trans_df["pet_cat"])
     for col, dtype in X_trans_df.dtypes.items():
         assert dtype == expected_dtypes[col]
 
@@ -2122,8 +2125,11 @@ def test_transformers_with_pandas_out_but_not_feature_names_out(
         ct.get_feature_names_out()
 
     # The feature names are prefixed because verbose_feature_names_out=True is default
-    ct.set_output(transform="pandas")
+    ct.set_output(transform="modin.pandas")
+    print(X_df)
     X_trans_df0 = ct.fit_transform(X_df)
+    print(X_trans_df0)
+    # print(type(X_trans_df0))
     assert_array_equal(X_trans_df0.columns, expected_verbose_names)
 
     ct.set_params(verbose_feature_names_out=False)

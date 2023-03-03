@@ -14,6 +14,7 @@ from math import log, sqrt
 from numbers import Integral, Real
 
 import numpy as np
+import time
 from scipy import linalg
 from scipy.special import gammaln
 from scipy.sparse import issparse
@@ -430,9 +431,12 @@ class PCA(_BasePCA):
         self : object
             Returns the instance itself.
         """
+        start_time = time.time()
         self._validate_params()
 
         self._fit(X)
+        exe_min, exe_sec = divmod(time.time() - start_time, 60)
+        print(f"PCA fit finished in {exe_min} mins and {exe_sec} seconds")
         return self
 
     def fit_transform(self, X, y=None):

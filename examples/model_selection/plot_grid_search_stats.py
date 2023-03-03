@@ -55,14 +55,27 @@ search.fit(X, y)
 # We can now inspect the results of our search, sorted by their
 # `mean_test_score`:
 
-import pandas as pd
+import modin.pandas as pd
+
+print(pd.__version__)
 
 results_df = pd.DataFrame(search.cv_results_)
 results_df = results_df.sort_values(by=["rank_test_score"])
+print(type(results_df["params"]), type(results_df["mean_score_time"]))
+print("results_df params")
+print(results_df["params"])
+print(results_df["params"].apply(lambda x: "_".join(str(val) for val in x.values())))
+# results_df = results_df.set_index(
+#     results_df["params"].apply(lambda x: "_".join(str(val) for val in x.values()))
+# ).rename_axis("kernel")
 results_df = results_df.set_index(
-    results_df["params"].apply(lambda x: "_".join(str(val) for val in x.values()))
+    # results_df["params"].apply(lambda x: "_".join(str(val) for val in x.values()))
+    results_df["mean_score_time"]
+    # results_df["params"].apply(lambda x: "_".join(str(val) for val in x.values()))
 ).rename_axis("kernel")
 results_df[["params", "rank_test_score", "mean_test_score", "std_test_score"]]
+print("results_df")
+print(results_df)
 
 # %%
 # We can see that the estimator using the `'rbf'` kernel performed best,

@@ -68,7 +68,7 @@ scores = ["precision", "recall"]
 # model at predicting. Notice that these custom choices are completely
 # arbitrary.
 
-import pandas as pd
+import modin.pandas as pd
 
 
 def print_dataframe(filtered_cv_results):

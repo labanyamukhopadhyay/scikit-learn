@@ -88,7 +88,7 @@ def _get_output_config(method, estimator=None):
     else:
         dense_config = get_config()[f"{method}_output"]
 
-    if dense_config not in {"default", "pandas"}:
+    if dense_config not in {"default", "pandas", "modin.pandas"}:
         raise ValueError(
             f"output config must be 'default' or 'pandas' got {dense_config}"
         )

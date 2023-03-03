@@ -138,7 +138,7 @@ print(f"RF test accuracy: {rf.score(X_test, y_test):.3f}")
 #
 # The fact that we use training set statistics explains why both the
 # `random_num` and `random_cat` features have a non-null importance.
-import pandas as pd
+import modin.pandas as pd
 
 feature_names = rf[:-1].get_feature_names_out()
 

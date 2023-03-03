@@ -53,7 +53,7 @@ X, y, true_weights = make_regression(
 # We now fit both Bayesian models and the OLS to later compare the models'
 # coefficients.
 
-import pandas as pd
+import modin.pandas as pd
 from sklearn.linear_model import ARDRegression, LinearRegression, BayesianRidge
 
 olr = LinearRegression().fit(X, y)

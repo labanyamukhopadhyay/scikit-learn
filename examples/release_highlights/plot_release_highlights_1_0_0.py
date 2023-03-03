@@ -146,7 +146,7 @@ spline.fit_transform(X)
 # non-:term:`fit`, such as :term:`predict`, are consistent with features in
 # :term:`fit`:
 from sklearn.preprocessing import StandardScaler
-import pandas as pd
+import modin.pandas as pd
 
 X = pd.DataFrame([[1, 2, 3], [4, 5, 6]], columns=["a", "b", "c"])
 scalar = StandardScaler().fit(X)
@@ -162,7 +162,7 @@ scalar.feature_names_in_
 # combine feature names of its transformers:
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
-import pandas as pd
+import modin.pandas as pd
 
 X = pd.DataFrame({"pet": ["dog", "cat", "fish"], "age": [3, 7, 1]})
 preprocessor = ColumnTransformer(

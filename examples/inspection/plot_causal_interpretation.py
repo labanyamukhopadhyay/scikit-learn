@@ -27,7 +27,7 @@ identifying that causal effect.
 # of all the previous variables and a random component. Note that all variables
 # have a positive effect on hourly wages.
 import numpy as np
-import pandas as pd
+import modin.pandas as pd
 
 n_samples = 10_000
 rng = np.random.RandomState(32)

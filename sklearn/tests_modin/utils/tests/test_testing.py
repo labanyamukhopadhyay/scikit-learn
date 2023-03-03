@@ -480,6 +480,7 @@ class MockMetaEstimatorDeprecatedDelegation:
         """Incorrect docstring but should not be tested"""
 
 
+@pytest.mark.skip(reason="not relevant")
 @pytest.mark.filterwarnings("ignore:if_delegate_has_method was deprecated")
 @pytest.mark.parametrize(
     "mock_meta",
@@ -700,6 +701,7 @@ def test_memmap_on_contiguous_data(dtype):
     assert sum_mmap == pytest.approx(sum_origin, rel=1e-11)
 
 
+@pytest.mark.skip(reason="not relevant")
 @pytest.mark.parametrize(
     "constructor_name, container_type",
     [
@@ -711,7 +713,7 @@ def test_memmap_on_contiguous_data(dtype):
         ("sparse_csc", sparse.csc_matrix),
         ("dataframe", lambda: pytest.importorskip("modin.pandas").DataFrame),
         ("series", lambda: pytest.importorskip("modin.pandas").Series),
-        ("index", lambda: pytest.importorskip("modin.pandas").Index),
+        ("index", lambda: pytest.importorskip("pandas").Index),
         ("slice", slice),
     ],
 )

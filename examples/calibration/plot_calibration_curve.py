@@ -137,7 +137,7 @@ plt.show()
 
 from collections import defaultdict
 
-import pandas as pd
+import modin.pandas as pd
 
 from sklearn.metrics import (
     precision_score,
